@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CartWidget() {
+const CartWidget = () => {
   return (
     <a href='#' className='carrito'>
         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" className="ml-3 mb-1 bi bi-cart" viewBox="0 0 16 16">
