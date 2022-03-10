@@ -56,3 +56,5 @@ const ItemCount = ({stock, initial}) => {
 }
 
 export default ItemCount
+
+// <ItemCount stock={15} initial={1}/>

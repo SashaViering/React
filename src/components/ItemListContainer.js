@@ -1,33 +1,32 @@
-import React from 'react'
-import ItemCount from './ItemCount'
+import React, {useEffect, useState} from 'react'
+import products from '../database/products'
+import ItemList from './ItemList'
 
-function ItemListContainer({categorías}) {
-    
-  return (
-    <> 
-    <main className='row container'>
-        <section className='ml-5 pl-3'>
-            <p className='title-productos'><b>Nuestros productos</b></p>
-            <p className='title-categorias'><b>Categorías</b></p>
-            <ul>
-                <li className='mb-2'>
-                    <a href='#'>{categorías[0]}</a>
-                    </li>
-                    <li className='mb-2'>
-                    <a href='#'>{categorías[1]}</a>
-                    </li>
-                    <li className='mb-2'>
-                    <a href='#'>{categorías[2]}</a>
-                    </li>
-                    <li className='mb-2'>
-                    <a href='#'>{categorías[3]}</a>
-                    </li>
-            </ul>
-        </section>
-        <ItemCount stock={15} initial={1}/>
-    </main>
-    </> 
-  )
+function getDatos() {
+   return new Promise((resolve, reject) => {
+      setTimeout(function(){
+        resolve(products)
+      }, 2000);
+   }
+  )}
+
+
+const ItemListContainer = ({greeting}) => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getDatos()
+    .then(respuestaPromise => setItems(respuestaPromise))
+    .catch( error => console.error(error));
+  }, []);
+  
+  
+   return (
+     <>
+      <h4>{greeting}</h4>
+      <ItemList items={items}/>
+     </>
+   )
 }
 
 export default ItemListContainer
