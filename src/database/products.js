@@ -14,7 +14,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1590,
             "stock": 20,
-            "img": "producto7.jpg"
+            "img": "/img/producto7.jpg"
         },
         {
             "id": 3,
@@ -23,7 +23,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1990,
             "stock": 25,
-            "img": "producto8.jpg"
+            "img": "/img/producto8.jpg"
         },
         {
             "id": 4,
@@ -32,7 +32,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1790,
             "stock": 40,
-            "img": "prodindex5.jpg"
+            "img": "/img/prodindex5.jpg"
         },
         {
             "id": 5,
@@ -41,7 +41,7 @@ const products = [{
             "material": "cerámica",
             "precio": 40000,
             "stock": 16,
-            "img": "tazacuadrillé.jpg"
+            "img": "/img/tazacuadrillé.jpg"
         },
         {
             "id": 6,
@@ -50,7 +50,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1790,
             "stock": 40,
-            "img": "producto5.jpg"
+            "img": "/img/producto5.jpg"
         },
         {
             "id": 7,
@@ -59,7 +59,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1990,
             "stock": 40,
-            "img": "producto10.jpg"
+            "img": "/img/producto10.jpg"
         },
         {
             "id": 8,
@@ -68,7 +68,7 @@ const products = [{
             "material": "cerámica",
             "precio": 1790,
             "stock": 40,
-            "img": "producto6.jpg"
+            "img": "/img/producto6.jpg"
 }]
 
 export default products;

@@ -3,7 +3,7 @@ import Item from './Item'
 
  const ItemList = ({items}) => {
   return (
-    <section className='row'>
+    <section className='row itemList'>
         { items.map(item => {
           return ( 
             <div>

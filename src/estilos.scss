@@ -77,9 +77,6 @@ footer{
 h4{
     margin-left: 70px;
 }
-.itemCount{
-    background-color: #f3f2f28e;
-}
 .btn-secondary{
     background-color: #cccccc;
     color: #2e2d2d;
@@ -100,6 +97,50 @@ h4{
 section{
     margin: 0px;
     padding: 0px;
+}
+.img-box{
+    width: 262px;
+    height: 290px;
+}
+.img-box-detail{
+    width: 462px;
+    height: 490px;
+}
+.container-detail{
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #f7f4f48e ;
+         .m-de-pago{
+             text-decoration: underline;
+         }
+}
+.fontDetail{
+    font-size: 25px;
+}
+.font-detail-subtitles{
+    font-weight: 400;
+    font-size: 30px;
+}    
+.cuotas{
+    color: #699da6;
+}
+.btn-outline-dark:hover{
+     background-color: #699da6;
+}
+.select-black{
+    color: black;
+}
+.select-terracota{
+    color: #9e6c22;
+}
+hr{
+    height: 1px;
+    color: #2e2d2d;
+}
+@media screen and (min-width:360px){
+    .itemList{
+        justify-content: center;
+    }
 }
 @media screen and (min-width: 768px){
     .main-menu{

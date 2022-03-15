@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import products from '../database/products'
 import ItemList from './ItemList'
+import ItemDetailContainer from './ItemDetailContainer'
 
 function getDatos() {
    return new Promise((resolve, reject) => {
@@ -25,6 +26,7 @@ const ItemListContainer = ({greeting}) => {
      <>
       <h4>{greeting}</h4>
       <ItemList items={items}/>
+      <ItemDetailContainer/>
      </>
    )
 }

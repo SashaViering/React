@@ -30,8 +30,7 @@ const ItemCount = ({stock, initial}) => {
    
 
   return (
-    <section className='itemCount p-5 ml-5 mt-2 pt-1'>
-      <h5>Cuenco Constelación</h5>
+    <section className='itemCount'>
       <p className='mr-2'>Cantidad: {estado}</p>
       <div className='row ml-1'>   
          <button onClick={handleRestar} className='btn btn-secondary'>
