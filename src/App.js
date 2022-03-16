@@ -1,7 +1,10 @@
 import React from 'react'
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
-import ItemListContainer from './components/ItemListContainer'
+import Main from './components/Main'
+import {ToastContainer} from "react-toastify"
+import {BrowserRouter} from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -11,11 +14,14 @@ const App = () => {
         edad: "24"
     }
     return( 
-    <>
-        <NavBar/>
-        <ItemListContainer categorías={["Tazas", "Macetas", "Floreros", "Cuencos"]}/>
-        <Footer/>
-    </>
+    
+      <BrowserRouter>
+            <NavBar/>
+            <Main/>
+            <Footer/>
+            <ToastContainer/>
+      </BrowserRouter>  
+    
     )
 }
 

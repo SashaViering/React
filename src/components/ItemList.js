@@ -4,15 +4,8 @@ import Item from './Item'
  const ItemList = ({items}) => {
   return (
     <section className='row itemList'>
-        { items.map(item => {
-          return ( 
-            <div>
-                <Item
-                     key={item.id}
-                     item={item}
-                />
-            </div>
-          )
+        {items.map((item) => {
+            return <Item key={item.id} item={item}/>
         })}
     </section>
   )

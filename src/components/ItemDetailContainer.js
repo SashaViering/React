@@ -1,21 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import Item from './Item';
+import products from '../database/products'
 import ItemDetail from './ItemDetail'
-
-let ItemInicial = {
-    "id": 3,
-    "categoria": "Floreros",
-    "nombre": "Florero Dona",
-    "material": "cerámica",
-    "precio": 1990,
-    "stock": 25,
-    "img": "/img/producto8.jpg"
-}
+import { useParams } from 'react-router-dom'
 
 function getItem() {
   return new Promise((resolve, reject) => {
      setTimeout(function(){
-       resolve(ItemInicial)
+       resolve(products)
      }, 2000);
   }
  )}
@@ -23,6 +14,7 @@ function getItem() {
  const ItemDetailContainer = () => {
 
    const [item, setItems] = useState({});
+   const {idItem} = useParams()
  
    useEffect(() => {
      getItem()
