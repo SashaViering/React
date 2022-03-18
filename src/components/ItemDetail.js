@@ -1,15 +1,28 @@
 import React from 'react'
 import ItemCount from './ItemCount'
+import {useState} from 'react';
 
 const ItemDetail = ({item}) => {
+
+  const [cantCart, setCantCart] = useState(0)
+
+    const onAdd = (itemCant) => {
+        if((cantCart + itemCant) <= 5){
+        setCantCart(cantCart + itemCant)
+        }else{
+            alert("solo hay 5 elementos de este producto")
+        }
+
+    }
+
   return (
     <div className='row container-detail p-5 mt-4'>
        <div>
-         <img src={item.img} className='img-box-detail'></img>
+         <img src={item.image} className='img-box-detail'/>
        </div>
        <div className='ml-5'>
-          <p className='fontDetail'>{item.nombre}</p>
-          <p className='font-detail-subtitles'>${item.precio},00</p>
+          <p className='fontDetail'>{item.title}</p>
+          <p className='font-detail-subtitles'>${item.price}</p>
           <p className='cuotas'>
             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='30' fill='currentColor' className='bi bi-credit-card mr-2' viewBox='0 0 16 16'>
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
@@ -28,11 +41,12 @@ const ItemDetail = ({item}) => {
                   <option className='select-terracota'>Terracota</option>
                 </select>
           </div>
-          <ItemCount stock={15} initial={1}/>
+          <ItemCount stock={5} initial={1} onAdd={onAdd}/>
         </div>
-        <h5 className='mt-5'>Descripción:</h5>
-        <p className='mt-4'>Florero con forma de dona de cerámica artesanal con esmalte transparente. Opciones de color blanco, negro y terracota. Las tres opciones son con la estampa de la imagen.</p>
-        <p>Aclaración: todos los productos son hechos artesanalmente, por lo que pueden haber variaciones en sus tamaños y medidas.</p>
+        <div className='mt-3'>
+          <p><b>Description</b></p>
+          <p>{item.description}</p>
+        </div>
     </div>
   )
 }

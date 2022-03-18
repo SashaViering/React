@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
  const NavBar = () => {
   return (
+      <>
         <header>
             <nav className='main-nav'>
                 <ul id='main-menu' className='main-menu'>
@@ -25,11 +26,19 @@ import { Link } from 'react-router-dom'
                     <Link to="/carrito">
                         <CartWidget/>
                     </Link>
-
-                    
                 </ul>
             </nav>
+            <h3 className='titulos'>Productos</h3>
         </header>
+        <section>
+            <nav class="nav ml-4 ">
+                <Link class="nav-link liNav active" to="/category/electronics">Electronics</Link>
+                <Link class="nav-link liNav" to="/category/jewelery">Jewelery</Link>
+                <Link class="nav-link liNav" to="/category/men's clothing">Men's clothing</Link>
+                <Link class="nav-link liNav" to="/category/women's clothing">Women's clothing</Link>
+            </nav> 
+        </section>
+    </>
   )
 }
 

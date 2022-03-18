@@ -9,9 +9,9 @@ import ItemListContainer from './ItemListContainer';
     <main>
       <Routes>  
             <Route path="/" element={<ItemListContainer/>}/>
+            <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
+            <Route path="/items/:itemId" element={<ItemDetailContainer/>}/>
             <Route path="/carrito" element={<Carrito/>}/>
-            <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
-            <Route path="/item/:idItem" element={<ItemDetailContainer/>}/>
       </Routes>  
     </main>
   )

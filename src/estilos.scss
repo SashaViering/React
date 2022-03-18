@@ -22,7 +22,9 @@ body{
     }
 }
 header{
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    nav{
+        box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    }
 }
 .main-menu{
     list-style: none;
@@ -99,12 +101,12 @@ section{
     padding: 0px;
 }
 .img-box{
-    width: 262px;
-    height: 290px;
+    width: 162px;
+    height: 190px;
 }
 .img-box-detail{
-    width: 462px;
-    height: 490px;
+    width: 362px;
+    height: 390px;
 }
 .container-detail{
     margin-left: 5%;
@@ -177,6 +179,9 @@ hr{
     --clippy:polygon(0 0, 100% 0, 100% 100%, 0 100%);
     color: #1e7785;
   }
+.fontDetail{
+    font-size: 16px;
+}
 @media screen and (min-width:360px){
     .itemList{
         justify-content: center;

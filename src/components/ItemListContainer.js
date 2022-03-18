@@ -1,47 +1,36 @@
 import React, {useEffect, useState} from 'react'
-import products from '../database/products'
+import products from './products.json'
 import ItemList from './ItemList'
-import ItemDetailContainer from './ItemDetailContainer'
 import { toast } from 'react-toastify'
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
-
 
 
 const ItemListContainer = () => {
 
-  const [loading, setLoading] = useState(true)
-  const [items, setItems] = useState([]);
-
-  const {idCategoria} = useParams()
-
-  function getDatos() {
-    return new Promise((resolve, reject) => {
-       setTimeout(function(){
-         console.log(idCategoria)
-         resolve(products)
-       }, 2000);
-    }
-   )}
-
+const [loading, setLoading] = useState(true)
+  const [items, setItems] = useState([])
+  const {categoryId} = useParams()
+  
   useEffect(() => {
+      const url = `https://fakestoreapi.com/products${categoryId ? "/category/"+categoryId : ""}`
+      console.log(url)
 
-    toast.info("Cargando productos..")
+      fetch(url) 
+      .then((response)=>{
+          return response.json()
+      })
+      .then((resultado)=>{
+        toast.dismiss()
+          setItems(resultado)
+      })
+      .catch(()=>{
+          toast.error("Error al cargar los productos")
+      })
+      .finally(()=>{
+          setLoading(false)
+      })
 
-    getDatos()
-    
-    .then((resultado) =>{
-      toast.dismiss()
-      setItems(resultado)
-    })
-    .catch((error) =>{
-      toast.error("Error al traer los productos")
-    })
-    .finally(()=>{
-      setLoading(false)
-    })
-
-  }, [idCategoria]);
+  },[categoryId])
   
   if(loading){
     return( 
@@ -52,19 +41,9 @@ const ItemListContainer = () => {
       </div>
     )
   }else{
-    return ( 
-    <>  
-            <h3 className='titulos'>Productos</h3>
-            <nav class="nav ml-4 ">
-                <Link class="nav-link liNav active" to="/categoria/1">CUENCOS</Link>
-                <Link class="nav-link liNav" to="/categoria/2">TAZAS</Link>
-                <Link class="nav-link liNav" to="/categoria/3">MACETAS</Link>
-                <Link class="nav-link liNav" to="/categoria/4">FLOREROS</Link>
-                <Link class="nav-link liNav" to="/categoria/5">PIEZAS ÚNICAS</Link>
-            </nav> 
+    return (
     <ItemList items={items}/>
-    <ItemDetailContainer/>
-    </>
+
     )
   }
 }
