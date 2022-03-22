@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from './ItemCount'
+import {Link} from 'react-router-dom'
 import {useState} from 'react';
 
 const ItemDetail = ({item}) => {
@@ -7,10 +8,10 @@ const ItemDetail = ({item}) => {
   const [cantCart, setCantCart] = useState(0)
 
     const onAdd = (itemCant) => {
-        if((cantCart + itemCant) <= 5){
+        if((cantCart + itemCant) <= 12){
         setCantCart(cantCart + itemCant)
         }else{
-            alert("solo hay 5 elementos de este producto")
+            alert("Agregaste tus productos exitosamente")
         }
 
     }
@@ -41,7 +42,8 @@ const ItemDetail = ({item}) => {
                   <option className='select-terracota'>Terracota</option>
                 </select>
           </div>
-          <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+            <Link to="/cart" className='mt-2 btn btn-outline-info'>Finalizar compra</Link>
         </div>
         <div className='mt-3'>
           <p><b>Description</b></p>

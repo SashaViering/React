@@ -3,35 +3,38 @@ import {useState} from 'react'
 
 
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
    
 
-   const [estado, setEstado] = useState(0)
+   const [count, setCount] = useState(initial)
    
    const handleSumar = () => {
-      if(estado < stock){
-         setEstado(estado + 1)
+      if(count < stock){
+         setCount(count + 1)
+      }else{
+         alert("No hay stock")
       }
    }
 
    const handleRestar = () => {
-      if(estado > initial){ 
-      setEstado(estado - 1)
+      if(count > initial){ 
+      setCount(count - 1)
       }
    }
 
    const handleReset = () => {
-      setEstado(0)
+      setCount(0)
    }
 
-   const onAdd = () => {
-      console.log("Agregamos al carrito")
+   const agregarCarrito = () => {
+      onAdd(console.log(`Items agregados : ${count}`))
+      onAdd(count)
    }
    
 
   return (
     <section className='itemCount'>
-      <p className='mr-2'>Cantidad: {estado}</p>
+      <p className='mr-2'>Cantidad: {count}</p>
       <div className='row ml-1'>   
          <button onClick={handleRestar} className='btn btn-secondary'>
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" fill="currentColor" className='bi bi-chevron-down' viewBox="0 0 16 16">
@@ -49,11 +52,10 @@ const ItemCount = ({stock, initial}) => {
             </svg>
          </button>
       </div>
-      <button onClick={onAdd} className='mt-3 btn btn-outline-info'>Agregar al carrito</button>
+      <button onClick={agregarCarrito} className='mt-3 btn btn-outline-info'>Agregar al carrito</button>
     </section>
   )
 }
 
 export default ItemCount
 
-// <ItemCount stock={15} initial={1}/>
