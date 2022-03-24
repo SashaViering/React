@@ -2,19 +2,19 @@ import React from 'react'
 import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom'
 import {useState} from 'react';
+import {useContext} from 'react'
+import CartContext, { contexto } from '../contexto/CartContext';
+
 
 const ItemDetail = ({item}) => {
 
   const [cantCart, setCantCart] = useState(0)
+  const { addItem } = useContext(contexto)
 
-    const onAdd = (itemCant) => {
-        if((cantCart + itemCant) <= 12){
-        setCantCart(cantCart + itemCant)
-        }else{
-            alert("Agregaste tus productos exitosamente")
-        }
-
-    }
+  const onAdd = (quantity) => {
+        setCantCart(cantCart + quantity)
+        addItem(item, quantity)
+  }
 
   return (
     <div className='row container-detail p-5 mt-4'>

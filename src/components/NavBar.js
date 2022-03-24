@@ -3,6 +3,7 @@ import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
 
  const NavBar = () => {
+
   return (
       <>
         <header>
@@ -23,7 +24,7 @@ import { Link } from 'react-router-dom'
                     <li className='main-menu__item'>
                         <a href='#' className='main-menu__link'>Contacto</a>
                     </li>
-                    <Link to="/carrito">
+                    <Link to="/cart">
                         <CartWidget/>
                     </Link>
                 </ul>
