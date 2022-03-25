@@ -26,7 +26,7 @@ body {
   color: #2e2d2d;
 }
 
-header {
+header nav {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -132,13 +132,13 @@ section {
 }
 
 .img-box {
-  width: 262px;
-  height: 290px;
+  width: 162px;
+  height: 190px;
 }
 
 .img-box-detail {
-  width: 462px;
-  height: 490px;
+  width: 362px;
+  height: 390px;
 }
 
 .container-detail {
@@ -186,6 +186,66 @@ hr {
   width: 5rem;
   height: 5rem;
   margin-top: 200px;
+}
+
+.liNav {
+  --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  color: black;
+  font-size: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #fafbfc;
+}
+
+.titulos {
+  color: #1e7785;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.liNav::after {
+  content: "";
+  display: block;
+  background: #444;
+  width: 100%;
+  margin-top: 3px;
+  height: 2px;
+  -webkit-clip-path: var(--clippy);
+  clip-path: var(--clippy);
+  -webkit-transition: -webkit-clip-path .5s;
+  transition: -webkit-clip-path .5s;
+  transition: clip-path .5s;
+  transition: clip-path .5s, -webkit-clip-path .5s;
+}
+
+.liNav:hover {
+  --clippy:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  color: #1e7785;
+}
+
+.fontDetail {
+  font-size: 16px;
+}
+
+.img-cart {
+  width: 120px;
+  height: 150px;
+}
+
+.totalprice-cart {
+  margin-left: 320px;
+  margin-top: 70px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.font-carrito {
+  font-size: 18px;
+  word-spacing: 5px;
 }
 
 @media screen and (min-width: 360px) {

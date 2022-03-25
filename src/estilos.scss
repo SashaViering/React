@@ -191,9 +191,16 @@ hr{
     margin-top: 70px;
 
 }
+.underline{
+    text-decoration: underline;
+}
+.font-carrito{
+    font-size: 18px;
+    word-spacing: 5px;
+}
 @media screen and (min-width:360px){
     .itemList{
-        justify-content: center;
+        justify-content: center
     }
 }
 @media screen and (min-width: 768px){

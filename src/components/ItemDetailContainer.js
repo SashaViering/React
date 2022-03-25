@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const {itemId} = useParams()
   
     useEffect(()=>{
-
+      
       toast.info("Cargando productos..")
   
       fetch(`https://fakestoreapi.com/products/${itemId}`)

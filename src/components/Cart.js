@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { contexto } from '../contexto/CartContext'
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -12,7 +13,7 @@ const Cart = () => {
 
   return (
     <section className="cartList mt-3">
-            <h4>Carrito</h4>
+            <p className='ml-5 fontDetail'><b>Carrito</b></p>
             {carrito.map(item => (
                 <div class="row g-0 ml-5 mb-5 mt-5">
                     <div class="col-md-3">
@@ -36,19 +37,20 @@ const Cart = () => {
                     </div> 
                 </div>
             ))}
-            <div className='totalprice-cart row'>
-                {totalPrice() === 0 ? null : <h4 className='mr-5'>Precio total: ${totalPrice()}</h4>}
-                {cartCounter() === 0 ? <h4>El carrito está vacio</h4> : <button className="btn btn-outline-info ml-5" onClick={() => { clear() }} >Vaciar Carrito</button>}
-            </div>
+                <div className='totalprice-cart row'>
+                    {totalPrice() === 0
+                     ? null 
+                     : <h4 className='mr-5'>Precio total: ${totalPrice()}</h4>}
+                
+                    {cartCounter() === 0 
+                    ? <div className='ml-5 font-carrito'>
+                        <p className='mr-5'>El carrito está vacio</p>
+                        <Link to='/' className=' underline ml-1'>Volver a Productos</Link> 
+                      </div> 
+                    : <button className="btn btn-outline-info ml-5 text-center" onClick={() => { clear() }} >Vaciar Carrito</button>}
+                </div>
         </section>
   )
 }
 export default Cart
 
-/*<article key={item.id} className="cartItem">
-                    <img src={item.image} />
-                    <h6>{item.title}</h6>
-                    <p>{item.quantity} x ${item.price}</p>
-                    <p>Total Parcial : ${item.quantity * item.price}</p>
-                    <button className="button" onClick={() => removeItem(item.id)}>borrar</button>
-                </article>*/
