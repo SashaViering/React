@@ -132,8 +132,8 @@ section {
 }
 
 .img-box {
-  width: 162px;
-  height: 190px;
+  width: 262px;
+  height: 290px;
 }
 
 .img-box-detail {
@@ -246,6 +246,12 @@ hr {
 .font-carrito {
   font-size: 18px;
   word-spacing: 5px;
+}
+
+.itemList {
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
 }
 
 @media screen and (min-width: 360px) {

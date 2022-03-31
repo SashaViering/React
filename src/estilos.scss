@@ -101,8 +101,8 @@ section{
     padding: 0px;
 }
 .img-box{
-    width: 162px;
-    height: 190px;
+    width: 262px;
+    height: 290px;
 }
 .img-box-detail{
     width: 362px;
@@ -198,9 +198,12 @@ hr{
     font-size: 18px;
     word-spacing: 5px;
 }
+.itemList{
+    justify-content: flex-start !important;
+}
 @media screen and (min-width:360px){
     .itemList{
-        justify-content: center
+        justify-content: center;
     }
 }
 @media screen and (min-width: 768px){

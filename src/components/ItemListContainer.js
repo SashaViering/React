@@ -12,54 +12,32 @@ const [loading, setLoading] = useState(true)
   const {categoryId} = useParams()
   
   useEffect(() => {
+    const productosCollection = collection(db, "productos")
+    const pedido = getDocs(productosCollection)
 
-		const productsCollection = collection(db, 'productos')
-		const respuesta = getDocs(productsCollection)
-		if (categoryId) {
-			const queryCollectionCategory = query(collection(db, 'productos'), where('category', '==', categoryId))
-			getDocs(queryCollectionCategory)
-				.then(resp => setItems(resp.docs.map(prod => (prod.data()))))
-				.catch((error) => {
-					toast.error("Error al cargar productos");
-				  })
-				.finally(() => setLoading(false))
-		} else {
-			respuesta
-				.then((resultado) => {
-					resultado.docs.forEach(doc => {
-						const arrayResultado = resultado.docs.map((doc) => doc.data())
-						setItems(arrayResultado)
-						setLoading(false)
-					})
-				})
-				.catch((error) => {
-					toast.error("Error al cargar productos");
-				})
-				.finally(() => {
-					setLoading(false)
-				})
-		}
+    if(!categoryId){
+      pedido
+          .then(res => setItems(res.docs.map(doc => doc.data())))
+          .catch(() => toast.error("Error al cargar los productos"))
+          .finally(() => setLoading(false))
+
+    }else{
+
+      const productosCollection = collection(db, "productos")
+      const filtro = query(productosCollection,where("category","==",categoryId))
+      const pedido = getDocs(filtro)
+
+      pedido
+          .then(res => setItems(res.docs.map(doc => doc.data())))
+          .catch(() => toast.error("Error al cargar los productos"))
+          .finally(() => setLoading(false))
+
+    }
+		
 	}, [categoryId])
  
   
-  /*useEffect(() => {
 
-      const productosCollection = collection(db, "productos")
-      const consulta = getDocs(productosCollection)
-      consulta
-          .then((resultado) => {
-              
-            const array_de_resultados = resultado.docs.map((doc) => {
-                return doc.data()
-            })
-            setItems(array_de_resultados)
-            setLoading(false)
-          })
-          .catch(() => {
-              toast.error("Error al cargar los productos")
-          })
-
-  },[categoryId])*/
   
   if(loading){
     return( 

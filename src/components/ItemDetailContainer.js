@@ -12,15 +12,14 @@ const ItemDetailContainer = () => {
   
     useEffect(() => {
 
-      const queryCollectionCategory = query(collection(db, 'productos'), where('id', '==', itemId))
-      
-      getDocs(queryCollectionCategory)
-        .then(resp => setItem(resp.docs[0].data()))
-        .catch((error) => {
-          toast.error("Error al cargar productos");
-        })
-        .finally(() => setLoading(false))
-  
+    const productosCollection = collection(db, "productos")
+    const filtro = query(productosCollection, where("id", "==", Number(itemId)))
+    const pedido = getDocs(filtro)
+
+    pedido
+      .then(res => setItem(res.docs[0].data()))
+      .catch(() => toast.error("Error al cargar los productos"))
+      .finally(() => setLoading(false))
     }, [])
 
    

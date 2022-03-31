@@ -37,10 +37,10 @@ import { Link } from 'react-router-dom'
         </header>
         <section>
             <nav className='nav ml-4 '>
-                <Link className="nav-link liNav active" to="/category/electronics">Macetas</Link>
-                <Link className="nav-link liNav" to="/category/jewelery">Tazas</Link>
-                <Link className="nav-link liNav" to="/category/men's clothing">Cuencos</Link>
-                <Link className="nav-link liNav" to="/category/women's clothing">Floreros</Link>
+                <Link className="nav-link liNav active" to="/category/Macetas">Macetas</Link>
+                <Link className="nav-link liNav" to="/category/Tazas">Tazas</Link>
+                <Link className="nav-link liNav" to="/category/Cuencos">Cuencos</Link>
+                <Link className="nav-link liNav" to="/category/Floreros">Floreros</Link>
             </nav> 
         </section>
     </>
