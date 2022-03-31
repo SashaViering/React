@@ -6,7 +6,6 @@ const Cart = () => {
 
   const {carrito, removeItem, clear, totalPrice, cartCounter} = useContext(contexto)
 
-
   const handleClear = () => {
       clear()
   }

@@ -36,11 +36,11 @@ import { Link } from 'react-router-dom'
             <h3 className='titulos'>Productos</h3>
         </header>
         <section>
-            <nav class="nav ml-4 ">
-                <Link class="nav-link liNav active" to="/category/electronics">Electronics</Link>
-                <Link class="nav-link liNav" to="/category/jewelery">Jewelery</Link>
-                <Link class="nav-link liNav" to="/category/men's clothing">Men's clothing</Link>
-                <Link class="nav-link liNav" to="/category/women's clothing">Women's clothing</Link>
+            <nav className='nav ml-4 '>
+                <Link className="nav-link liNav active" to="/category/electronics">Macetas</Link>
+                <Link className="nav-link liNav" to="/category/jewelery">Tazas</Link>
+                <Link className="nav-link liNav" to="/category/men's clothing">Cuencos</Link>
+                <Link className="nav-link liNav" to="/category/women's clothing">Floreros</Link>
             </nav> 
         </section>
     </>

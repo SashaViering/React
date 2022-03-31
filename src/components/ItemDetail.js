@@ -3,10 +3,10 @@ import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom'
 import {useState} from 'react';
 import {useContext} from 'react'
-import CartContext, { contexto } from '../contexto/CartContext';
+import { contexto } from '../contexto/CartContext';
 
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item }) => {
 
   const [cantCart, setCantCart] = useState(0)
   const { addItem } = useContext(contexto)
@@ -35,7 +35,7 @@ const ItemDetail = ({item}) => {
           <a href='#' className='m-de-pago'>Ver medios de pago</a>
           <hr></hr>
           <div className='form-group mt-3'>
-                <label for='exampleFormControlSelect1'>Color:</label>
+                <label htmlFor='exampleFormControlSelect1'>Color:</label>
                 <select className='form-control' id='exampleFormControlSelect1'>
                   <option>Blanco</option>
                   <option className='select-black'>Negro</option>
