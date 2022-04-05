@@ -1,6 +1,10 @@
 import React, { useContext } from 'react'
 import { contexto } from '../contexto/CartContext'
 import { Link } from 'react-router-dom';
+import { db } from '../firebase';
+import { collection, serverTimestamp, addDoc, } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+
 
 const Cart = () => {
 
@@ -9,6 +13,32 @@ const Cart = () => {
   const handleClear = () => {
       clear()
   }
+
+  const terminarCompra = () => {
+
+      const orden = {
+          buyer:{
+                name: "",
+                lastname: "",
+                email: "",
+                tel: "",
+          },
+          items : carrito,
+          date : serverTimestamp(),
+          total : totalPrice
+      }
+
+      const ordenesCollection = collection(db, "orden")
+      const pedido = addDoc(ordenesCollection, orden)
+
+      pedido
+            .then(res =>{
+                console.log(res)
+                toast.success("Finalizo la compra")
+            })
+            .catch(() => toast.error("Error al cargar los productos"))
+}         
+            
 
   return (
     <section className="cartList mt-3">
@@ -40,7 +70,6 @@ const Cart = () => {
                     {totalPrice() === 0
                      ? null 
                      : <h4 className='mr-5'>Precio total: ${totalPrice()}</h4>}
-                
                     {cartCounter() === 0 
                     ? <div className='ml-5 font-carrito'>
                         <p className='mr-5'>El carrito está vacio</p>
@@ -48,6 +77,7 @@ const Cart = () => {
                       </div> 
                     : <button className="btn btn-outline-info ml-5 text-center" onClick={() => { clear() }} >Vaciar Carrito</button>}
                 </div>
+                <button className="btn btn-outline-info text-center mt-5 ml-5" onClick={terminarCompra}>Finalizar Compra</button>
         </section>
   )
 }
