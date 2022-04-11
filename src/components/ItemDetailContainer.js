@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
       .then(res => setItem(res.docs[0].data()))
       .catch(() => toast.error("Error al cargar los productos"))
       .finally(() => setLoading(false))
-    }, [])
+    }, [ itemId])
 
    
     return (

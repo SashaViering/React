@@ -1,44 +1,52 @@
 import React, { useContext } from 'react'
+import { useState } from "react"
 import { contexto } from '../contexto/CartContext'
 import { Link } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, serverTimestamp, addDoc, } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
-
-const Cart = () => {
-
-  const {carrito, removeItem, clear, totalPrice, cartCounter} = useContext(contexto)
-
-  const handleClear = () => {
-      clear()
-  }
-
-  const terminarCompra = () => {
-
+const Cliente = () => {
+    const [buyer, setBuyer] = useState({ nombre: '', telefono: '', email: '' })
+  
+    const { carrito, totalPrice, clear, removeItem, cartCounter } = useContext(contexto)
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setBuyer({
+        ...buyer,
+        [name]: value
+      })
+    }
+    const endPurchase = () => {
       const orden = {
-          buyer:{
-                name: "",
-                lastname: "",
-                email: "",
-                tel: "",
-          },
-          items : carrito,
-          date : serverTimestamp(),
-          total : totalPrice
+        buyer,
+        items: carrito,
+        date: serverTimestamp(),
+        total: totalPrice()
       }
-
-      const ordenesCollection = collection(db, "orden")
+  
+      const ordenesCollection = collection(db, "ordenes")
       const pedido = addDoc(ordenesCollection, orden)
-
-      pedido
-            .then(res =>{
-                console.log(res)
-                toast.success("Finalizo la compra")
-            })
-            .catch(() => toast.error("Error al cargar los productos"))
-}         
-            
+  
+  
+      if (buyer.nombre && buyer.telefono && buyer.email) {
+        pedido
+          .then(res => {
+            toast.success("Compra exitosa!" + " Número de orden: " + res.id)
+          })
+          .catch(error => {
+            toast.error("hubo un error!")
+          })
+          .finally(() => {
+            clear()
+          })
+      } else {
+        toast.error("Por favor complete los datos del comprador", {
+          position: toast.POSITION.TOP_CENTER
+        })
+      }
+    }  
 
   return (
     <section className="cartList mt-3">
@@ -46,7 +54,7 @@ const Cart = () => {
             {carrito.map(item => (
                 <div class="row g-0 ml-5 mb-5 mt-5">
                     <div class="col-md-3">
-                        <img src={item.image} class="img-fluid rounded-start img-cart" alt="..."/>
+                        <img src={item.image} className="img-fluid rounded-start img-cart" alt="..."/>
                     </div>
                     <div class="col-md-8">
                       <div class="card-body" key={item.id}>
@@ -77,9 +85,20 @@ const Cart = () => {
                       </div> 
                     : <button className="btn btn-outline-info ml-5 text-center" onClick={() => { clear() }} >Vaciar Carrito</button>}
                 </div>
-                <button className="btn btn-outline-info text-center mt-5 ml-5" onClick={terminarCompra}>Finalizar Compra</button>
+                    <p className='mt-5 ml-5'>Datos del comprador</p>
+                    <form className="form ml-5">
+                        <div className="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input value={buyer.nombre} name="nombre" className='form-control' type="text" id="nombre" onChange={handleChange} />
+                            <label for="telefono">Teléfono</label>
+                            <input value={buyer.telefono} name="telefono" id="telefono" className='form-control' type="number" onChange={handleChange} />
+                            <label for="email">Email</label>
+                            <input value={buyer.email} name="email" id="email" type="email" className='form-control' onChange={handleChange} />
+                        </div>
+                    </form>
+                    <button className="btn btn-outline-info text-center mt-5 ml-5" onClick={() => endPurchase()}>Finalizar Compra</button>
         </section>
   )
 }
-export default Cart
+export default Cliente
 

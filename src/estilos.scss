@@ -201,6 +201,9 @@ hr{
 .itemList{
     justify-content: flex-start !important;
 }
+form{
+    width: 80%;
+}
 @media screen and (min-width:360px){
     .itemList{
         justify-content: center;
@@ -219,6 +222,9 @@ hr{
     .nav-brand{
         margin-left: 50px;
         margin-right: 200px;
+    }
+    form{
+        width: 50%;
     }
 }
 @media screen and (min-width: 1200px){
