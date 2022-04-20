@@ -27,7 +27,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
    }
 
    const agregarCarrito = () => {
-      onAdd(console.log(`Items agregados : ${count}`))
       onAdd(count)
    }
    
