@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='d-flex container-fluid text-center'>
         <p>© Copyright Sasha Pottery - 2022</p>
         <a href="https://es-la.facebook.com/" target="_blank">
            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" className="bi bi-facebook facebook" viewBox="0 0 16 16">

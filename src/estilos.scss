@@ -49,22 +49,19 @@ header{
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 30px;
+    text-decoration: none !important;
 }
 .title-productos{
     color: #1e7785;
     font-size: 20px;
 }
 footer{
-    text-align: center;
-    width: 100%;
-    margin-top: 80vh;
-    display: flex;
     justify-content: center;
-    align-items: center;
     background: -webkit-gradient(linear, left top, right top, from(#f4c478), color-stop(49%, #9fac94), to(#699da6));
     background: linear-gradient(90deg, #f4c478 0%, #9fac94 49%, #699da6 100%);
-    height: 10vh;
     font-size: 0.8rem;
+    padding-top: 15px;
+    margin-top: 20px;
 }
 .instagram {
     color: #2e2d2d;
@@ -145,22 +142,22 @@ hr{
     height: 5rem;
     margin-top: 200px;
 }  
-  .liNav {
+.liNav {
     --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
     color: black;
     font-size: 13px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #fafbfc;
-  }
-  .titulos {
+}
+.titulos {
     color: #1e7785;
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 10px;
     margin-left: 40px;
-  }
-  .liNav::after {
+}
+.liNav::after {
     content: "";
     display: block;
     background: #444;
@@ -173,12 +170,12 @@ hr{
     transition: -webkit-clip-path .5s;
     transition: clip-path .5s;
     transition: clip-path .5s, -webkit-clip-path .5s;
-  }
+}
   
-  .liNav:hover {
+.liNav:hover {
     --clippy:polygon(0 0, 100% 0, 100% 100%, 0 100%);
     color: #1e7785;
-  }
+}
 .fontDetail{
     font-size: 16px;
 }
@@ -203,6 +200,19 @@ hr{
 }
 form{
     width: 80%;
+}
+.btn-success {
+    color: white;
+    background-color: #1e7785 !important;
+    border-color: #1e7785 !important;
+}
+.btn-success:hover{
+    color: #fff;
+    background-color: #3092a1 !important;
+    border-color: #3092a1 !important;
+}
+.spinner-border{
+    margin-bottom: 250px;
 }
 @media screen and (min-width:360px){
     .itemList{

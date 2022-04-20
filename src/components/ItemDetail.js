@@ -34,14 +34,6 @@ const ItemDetail = ({ item }) => {
           <p><b>10% de descuento</b> pagando con Transferencia / Depósito</p>
           <a href='#' className='m-de-pago'>Ver medios de pago</a>
           <hr></hr>
-          <div className='form-group mt-3'>
-                <label htmlFor='exampleFormControlSelect1'>Color:</label>
-                <select className='form-control' id='exampleFormControlSelect1'>
-                  <option>Blanco</option>
-                  <option className='select-black'>Negro</option>
-                  <option className='select-terracota'>Terracota</option>
-                </select>
-          </div>
             <ItemCount stock={10} initial={1} onAdd={onAdd}/>
             <Link to="/cart" className='mt-2 btn btn-outline-info'>Finalizar compra</Link>
         </div>

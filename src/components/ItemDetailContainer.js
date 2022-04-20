@@ -22,12 +22,20 @@ const ItemDetailContainer = () => {
       .finally(() => setLoading(false))
     }, [ itemId])
 
-   
-    return (
-      <>
-       <ItemDetail item= {item}/>
-      </>
-    )
+    if(loading){
+      return( 
+        <div className='d-flex justify-content-center'>
+          <div className='spinner-border text-info' role='status'>
+            <span className='sr-only'>Loading...</span>
+          </div>
+        </div>
+      )
+    }else{
+      return (
+      <ItemDetail item={item}/>
+  
+      )
+    }
  }
  
  export default ItemDetailContainer

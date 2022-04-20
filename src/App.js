@@ -14,7 +14,6 @@ const App = () => {
         edad: "24"
     }
     return( 
-    
       <BrowserRouter>
             <CartContext>
                 <NavBar/>
@@ -23,7 +22,6 @@ const App = () => {
             <Footer/>
             <ToastContainer/>
       </BrowserRouter>  
-    
     )
 }
 
